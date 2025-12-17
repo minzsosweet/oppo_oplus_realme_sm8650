@@ -238,8 +238,10 @@ jobs:
             curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -
                  
             cd KernelSU-Next
-            sed -i 's/DKSU_VERSION=.*/DKSU_VERSION=25000/' kernel/Makefile
+            KSU_VERSION=32900
+            sed -i "s/DKSU_VERSION=.*/DKSU_VERSION=${KSU_VERSION}/" kernel/Makefile
             grep "DKSU_VERSION" kernel/Makefile
+            echo "KernelSU Next version set to ${KSU_VERSION}"
             
             #为KernelSU Next添加WildKSU管理器支持
             cd ../common/drivers/kernelsu
